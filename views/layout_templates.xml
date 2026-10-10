@@ -6,10 +6,11 @@
         <!-- Modifikasi Brand di Navbar -->
         <xpath expr="//t[@t-call='website.placeholder_header_brand']" position="replace">
             <a href="/" class="navbar-brand d-flex align-items-center gap-3 py-1 me-3">
-                <img src="/sirita_theme/static/img/logo.png" alt="Ma'had Al-Jami'ah IAIN Parepare" class="brand-logo-img" style="height: 48px; width: auto; object-fit: contain;"/>
+                <img src="/sirita_theme/static/img/logo.png" alt="Ma'had Al-Jami'ah IAIN Parepare" class="brand-logo-img" style="height: 50px; width: auto; object-fit: contain;"/>
                 <div class="brand-text-container d-none d-xl-flex flex-column justify-content-center">
-                    <span class="brand-title fw-bold text-dark" style="font-size: 1.05rem; letter-spacing: -0.01em; line-height: 1.2;">MA'HAD AL-JAMI'AH</span>
-                    <span class="brand-subtitle fw-semibold text-teal text-uppercase" style="font-size: 0.72rem; letter-spacing: 0.05em; line-height: 1; color: #0d9488 !important;">IAIN PAREPARE</span>
+                    <span class="brand-overline text-muted text-uppercase fw-semibold" style="font-size: 0.62rem; letter-spacing: 0.08em; line-height: 1; margin-bottom: 3px; color: #64748b !important;">UNIT PELAKSANA TEKNIS</span>
+                    <span class="brand-title fw-bold text-dark" style="font-size: 1.05rem; letter-spacing: -0.01em; line-height: 1.15;">MA'HAD AL-JAMI'AH</span>
+                    <span class="brand-subtitle fw-bold text-teal text-uppercase" style="font-size: 0.72rem; letter-spacing: 0.05em; line-height: 1; margin-top: 2px; color: #0d9488 !important;">IAIN PAREPARE</span>
                 </div>
             </a>
         </xpath>
