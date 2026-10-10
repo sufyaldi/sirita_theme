@@ -53,7 +53,7 @@
                         <!-- Aksen Bottom Shadow untuk Mempertegas Floating Quick Cards -->
                         <div class="position-absolute bottom-0 start-0 w-100" style="height: 120px; z-index: 2; background: linear-gradient(to top, rgba(6, 61, 54, 0.8) 0%, transparent 100%); pointer-events: none;"></div>
 
-                        <div class="container py-5 position-relative" style="z-index: 3;">
+                        <div class="container pt-5 pb-5 pb-lg-5 position-relative" style="z-index: 3; padding-bottom: 85px !important;">
                             <div class="row align-items-center">
                                 <div class="col-12 col-lg-8 col-xl-7 text-start">
                                     <div class="d-inline-flex align-items-center rounded-pill px-3 py-1 mb-3 bg-white text-dark small fw-bold shadow-sm" style="background-color: #ffffff !important; color: #064e3b !important; border: 1px solid rgba(255,255,255,0.8);">
@@ -65,7 +65,7 @@
                                     <p class="fs-5 text-white text-opacity-90 mb-4" style="line-height: 1.6; max-width: 600px; text-shadow: 0 1px 4px rgba(0,0,0,0.4);">
                                         Pusat pembinaan karakter, standarisasi hafalan Al-Qur'an, pendalaman kitab turats, serta integrasi bahasa Arab dan Inggris bagi civitas akademika IAIN Parepare.
                                     </p>
-                                    <div class="d-flex flex-wrap gap-2 justify-content-start">
+                                    <div class="d-flex flex-wrap gap-2 justify-content-start mb-2">
                                         <a href="/syahadah/verify" class="btn btn-lg btn-warning rounded-pill px-4 fw-bold shadow">
                                             <i class="fa fa-qrcode me-2"/>Verifikasi Syahadah
                                         </a>
@@ -81,13 +81,13 @@
                         </div>
                     </section>
 
-                    <!-- ================= 3. 4 QUICK ACTION SERVICES (ALA SAHAJA & MIU) ================= -->
-                    <section class="quick-services py-4" style="margin-top: -30px; position: relative; z-index: 5;">
+                    <!-- ================= 3. 4 QUICK ACTION SERVICES (ELEGANT 50/50 FLOATING CARDS) ================= -->
+                    <section class="quick-services py-3" style="margin-top: -72px; position: relative; z-index: 10;">
                         <div class="container">
                             <div class="row g-3">
                                 <div class="col-12 col-sm-6 col-lg-3">
                                     <a href="/syahadah/verify" class="text-decoration-none">
-                                        <div class="card p-3 border-0 shadow rounded-4 h-100 transition-hover" style="background: #ffffff; border-left: 5px solid #0d9488 !important;">
+                                        <div class="card p-3 border-0 rounded-4 h-100 transition-hover" style="background: #ffffff; border-left: 5px solid #0d9488 !important; box-shadow: 0 12px 28px -5px rgba(0, 0, 0, 0.12), 0 4px 10px -2px rgba(0, 0, 0, 0.05);">
                                             <div class="d-flex align-items-center mb-2">
                                                 <div class="rounded-circle p-2 me-3 text-white d-flex align-items-center justify-content-center flex-shrink-0" style="width: 48px; height: 48px; background-color: #0d9488; font-size: 20px;">
                                                     <i class="fa fa-qrcode" style="font-size: 22px;"/>
@@ -103,7 +103,7 @@
                                 </div>
                                 <div class="col-12 col-sm-6 col-lg-3">
                                     <a href="/web/login" class="text-decoration-none">
-                                        <div class="card p-3 border-0 shadow rounded-4 h-100 transition-hover" style="background: #ffffff; border-left: 5px solid #059669 !important;">
+                                        <div class="card p-3 border-0 rounded-4 h-100 transition-hover" style="background: #ffffff; border-left: 5px solid #059669 !important; box-shadow: 0 12px 28px -5px rgba(0, 0, 0, 0.12), 0 4px 10px -2px rgba(0, 0, 0, 0.05);">
                                             <div class="d-flex align-items-center mb-2">
                                                 <div class="rounded-circle p-2 me-3 text-white d-flex align-items-center justify-content-center flex-shrink-0" style="width: 48px; height: 48px; background-color: #059669; font-size: 20px;">
                                                     <i class="fa fa-id-card-o" style="font-size: 20px;"/>
@@ -119,7 +119,7 @@
                                 </div>
                                 <div class="col-12 col-sm-6 col-lg-3">
                                     <a href="/web/login" class="text-decoration-none">
-                                        <div class="card p-3 border-0 shadow rounded-4 h-100 transition-hover" style="background: #ffffff; border-left: 5px solid #d97706 !important;">
+                                        <div class="card p-3 border-0 rounded-4 h-100 transition-hover" style="background: #ffffff; border-left: 5px solid #d97706 !important; box-shadow: 0 12px 28px -5px rgba(0, 0, 0, 0.12), 0 4px 10px -2px rgba(0, 0, 0, 0.05);">
                                             <div class="d-flex align-items-center mb-2">
                                                 <div class="rounded-circle p-2 me-3 text-white d-flex align-items-center justify-content-center flex-shrink-0" style="width: 48px; height: 48px; background-color: #d97706; font-size: 20px;">
                                                     <i class="fa fa-balance-scale" style="font-size: 20px;"/>
@@ -135,7 +135,7 @@
                                 </div>
                                 <div class="col-12 col-sm-6 col-lg-3">
                                     <a href="/contactus" class="text-decoration-none">
-                                        <div class="card p-3 border-0 shadow rounded-4 h-100 transition-hover" style="background: #ffffff; border-left: 5px solid #2563eb !important;">
+                                        <div class="card p-3 border-0 rounded-4 h-100 transition-hover" style="background: #ffffff; border-left: 5px solid #2563eb !important; box-shadow: 0 12px 28px -5px rgba(0, 0, 0, 0.12), 0 4px 10px -2px rgba(0, 0, 0, 0.05);">
                                             <div class="d-flex align-items-center mb-2">
                                                 <div class="rounded-circle p-2 me-3 text-white d-flex align-items-center justify-content-center flex-shrink-0" style="width: 48px; height: 48px; background-color: #2563eb; font-size: 20px;">
                                                     <i class="fa fa-university" style="font-size: 20px;"/>
