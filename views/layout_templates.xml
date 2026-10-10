@@ -5,11 +5,11 @@
     <template id="sirita_header_purwadhika" inherit_id="website.template_header_default" priority="20">
         <!-- Modifikasi Brand di Navbar -->
         <xpath expr="//t[@t-call='website.placeholder_header_brand']" position="replace">
-            <a href="/" class="navbar-brand d-flex align-items-center gap-2 py-1 me-4">
-                <img src="/sirita_theme/static/img/logo.png" alt="Ma'had Al-Jami'ah IAIN Parepare" class="brand-logo-img" style="height: 42px; width: auto;"/>
-                <div class="brand-text-container d-none d-sm-flex">
-                    <span class="brand-title">MA'HAD AL-JAMI'AH</span>
-                    <span class="brand-subtitle">IAIN PAREPARE</span>
+            <a href="/" class="navbar-brand d-flex align-items-center gap-3 py-1 me-3">
+                <img src="/sirita_theme/static/img/logo.png" alt="Ma'had Al-Jami'ah IAIN Parepare" class="brand-logo-img" style="height: 48px; width: auto; object-fit: contain;"/>
+                <div class="brand-text-container d-none d-xl-flex flex-column justify-content-center">
+                    <span class="brand-title fw-bold text-dark" style="font-size: 1.05rem; letter-spacing: -0.01em; line-height: 1.2;">MA'HAD AL-JAMI'AH</span>
+                    <span class="brand-subtitle fw-semibold text-teal text-uppercase" style="font-size: 0.72rem; letter-spacing: 0.05em; line-height: 1; color: #0d9488 !important;">IAIN PAREPARE</span>
                 </div>
             </a>
         </xpath>
@@ -22,19 +22,19 @@
         <!-- Modifikasi Call To Action di Header -->
         <xpath expr="//t[@t-call='website.placeholder_header_call_to_action']" position="replace">
             <li class="nav-item d-none d-md-block">
-                <a href="/syahadah/verify" class="btn-syahadah-quick">
-                    <i class="fa fa-certificate text-success"></i> Cek Syahadah
+                <a href="/syahadah/verify" class="btn btn-sm btn-outline-teal rounded-pill px-3 py-2 fw-semibold d-inline-flex align-items-center gap-1 shadow-sm" style="border: 1.5px solid #0d9488; color: #0d9488; background: #f0fdfa;">
+                    <i class="fa fa-qrcode text-teal" style="font-size: 14px;"></i> Verifikasi Syahadah
                 </a>
             </li>
             <li class="nav-item">
                 <t t-if="request.session.uid">
-                    <a href="/web" class="btn-portal-santri">
-                        <i class="fa fa-dashboard"></i> Dashboard
+                    <a href="/web" class="btn btn-sm rounded-pill px-3 py-2 fw-semibold text-white d-inline-flex align-items-center gap-1 shadow-sm" style="background: #0d9488; border: 1.5px solid #0d9488;">
+                        <i class="fa fa-th-large" style="font-size: 14px;"></i> Dashboard
                     </a>
                 </t>
                 <t t-else="">
-                    <a href="/web/login" class="btn-portal-santri">
-                        <i class="fa fa-user-circle"></i> Portal Santri
+                    <a href="/web/login" class="btn btn-sm rounded-pill px-3 py-2 fw-semibold text-white d-inline-flex align-items-center gap-1 shadow-sm" style="background: #0d9488; border: 1.5px solid #0d9488;">
+                        <i class="fa fa-user-circle" style="font-size: 14px;"></i> Portal Santri
                     </a>
                 </t>
             </li>

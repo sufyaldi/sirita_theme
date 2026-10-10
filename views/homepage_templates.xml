@@ -8,21 +8,21 @@
                 <div id="wrap" class="oe_structure oe_empty limit-min homepage sirita_theme_homepage">
 
                     <!-- ================= 1. RUNNING TEXT TICKER (MODERN GLASS MARQUEE DARI HOSTEL ANNOUNCEMENT) ================= -->
-                    <section class="ticker-section py-2" style="background: linear-gradient(90deg, #0f766e 0%, #0d9488 100%);">
+                    <section class="ticker-section py-2 border-bottom" style="background: #093733; border-color: rgba(255, 255, 255, 0.1) !important;">
                         <div class="container">
                             <t t-set="live_announcements" t-value="request.env['hostel.announcement'].sudo().search([('state', '=', 'published'), ('target_type', '=', 'all')], order='create_date desc', limit=5) if 'hostel.announcement' in request.env else []"/>
 
-                            <div class="d-flex align-items-center rounded-pill px-3 py-1 bg-white bg-opacity-10 border border-white border-opacity-25 shadow-sm">
-                                <div class="badge rounded-pill bg-white text-dark d-flex align-items-center px-3 py-1 me-3 flex-shrink-0 fw-bold">
-                                    <span class="me-1">🔔</span> SIARAN MAKLUMAT
+                            <div class="d-flex align-items-center">
+                                <div class="badge rounded-pill bg-warning text-dark d-flex align-items-center px-3 py-1 me-3 flex-shrink-0 fw-bold shadow-sm" style="font-size: 0.8rem;">
+                                    <span class="me-1">📢</span> SIARAN MAKLUMAT
                                 </div>
-                                <div class="flex-grow-1 overflow-hidden position-relative">
-                                    <marquee behavior="scroll" direction="left" scrollamount="6" class="m-0 text-white d-flex align-items-center" onmouseover="this.stop();" onmouseout="this.start();">
+                                <div class="flex-grow-1 overflow-hidden position-relative" style="height: 24px; display: flex; align-items: center;">
+                                    <marquee behavior="scroll" direction="left" scrollamount="6" class="m-0 text-white-50 d-flex align-items-center small" onmouseover="this.stop();" onmouseout="this.start();">
                                         <t t-if="live_announcements">
                                             <t t-foreach="[1, 2, 3]" t-as="repeat_idx">
                                                 <t t-foreach="live_announcements" t-as="ann">
                                                     <span class="text-white text-decoration-none me-5 fw-medium">
-                                                        <span class="badge rounded-pill bg-white text-dark me-2 small">
+                                                        <span class="badge bg-white bg-opacity-10 text-white border border-white border-opacity-25 rounded-pill me-2">
                                                             <t t-out="ann.category_id.name or 'Pengumuman'"/>
                                                         </span>
                                                         <t t-out="ann.name"/>
@@ -31,8 +31,8 @@
                                             </t>
                                         </t>
                                         <t t-else="">
-                                            <span class="me-5">🕌 Pendaftaran Sertifikasi Kelulusan Ma'had (Syahadah) Semester Ini Telah Dibuka. Silakan Cek Syahadah Anda Melalui Menu Verifikasi.</span>
-                                            <span class="me-5">📖 Jadwal Kajian Ta'lim Subuh &amp; Setoran Hafalan Al-Qur'an Berlangsung Setiap Hari di Masjid Kampus IAIN Parepare.</span>
+                                            <span class="text-white me-5">🕌 Pendaftaran Sertifikasi Kelulusan Ma'had (Syahadah) Semester Ini Telah Dibuka. Silakan Cek Syahadah Anda Melalui Menu Verifikasi.</span>
+                                            <span class="text-white me-5">📖 Jadwal Kajian Ta'lim Subuh &amp; Setoran Hafalan Al-Qur'an Berlangsung Setiap Hari di Masjid Kampus IAIN Parepare.</span>
                                         </t>
                                     </marquee>
                                 </div>
@@ -45,7 +45,7 @@
                         <div class="container py-lg-4 position-relative" style="z-index: 2;">
                             <div class="row align-items-center g-4">
                                 <div class="col-lg-7 text-center text-lg-start">
-                                    <div class="d-inline-flex align-items-center rounded-pill px-3 py-1 mb-3 bg-white bg-opacity-15 border border-white border-opacity-25 text-white small fw-bold">
+                                    <div class="d-inline-flex align-items-center rounded-pill px-3 py-1 mb-3 bg-white text-dark small fw-bold shadow-sm" style="background-color: #ffffff !important; color: #09403b !important; border: 1px solid rgba(255,255,255,0.8);">
                                         <span class="me-2">🕌</span> PUSAT MA'HAD AL-JAMI'AH IAIN PAREPARE
                                     </div>
                                     <h1 class="display-5 fw-bolder mb-3 text-white" style="line-height: 1.2; letter-spacing: -0.02em;">
