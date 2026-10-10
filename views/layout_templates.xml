@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Header Custom Purwadhika Style: Inherit template_header_default -->
+    <template id="sirita_header_purwadhika" inherit_id="website.template_header_default" priority="20">
+        <!-- Modifikasi Brand di Navbar -->
+        <xpath expr="//t[@t-call='website.placeholder_header_brand']" position="replace">
+            <a href="/" class="navbar-brand d-flex align-items-center gap-2 py-1 me-4">
+                <img src="/sirita_theme/static/img/logo.png" alt="Ma'had Al-Jami'ah IAIN Parepare" class="brand-logo-img" style="height: 42px; width: auto;"/>
+                <div class="brand-text-container d-none d-sm-flex">
+                    <span class="brand-title">MA'HAD AL-JAMI'AH</span>
+                    <span class="brand-subtitle">IAIN PAREPARE</span>
+                </div>
+            </a>
+        </xpath>
+
+        <!-- Sembunyikan Placeholder Text Element Dummy (+1 555-555-5556) -->
+        <xpath expr="//t[@t-call='website.placeholder_header_text_element']" position="replace">
+            <!-- Dihilangkan untuk menjaga kebersihan dan kerapian navbar resmi -->
+        </xpath>
+
+        <!-- Modifikasi Call To Action di Header -->
+        <xpath expr="//t[@t-call='website.placeholder_header_call_to_action']" position="replace">
+            <li class="nav-item d-none d-md-block">
+                <a href="/syahadah/verify" class="btn-syahadah-quick">
+                    <i class="fa fa-certificate text-success"></i> Cek Syahadah
+                </a>
+            </li>
+            <li class="nav-item">
+                <t t-if="request.session.uid">
+                    <a href="/web" class="btn-portal-santri">
+                        <i class="fa fa-dashboard"></i> Dashboard
+                    </a>
+                </t>
+                <t t-else="">
+                    <a href="/web/login" class="btn-portal-santri">
+                        <i class="fa fa-user-circle"></i> Portal Santri
+                    </a>
+                </t>
+            </li>
+        </xpath>
+    </template>
+
+    <!-- Custom Footer Purwadhika Charcoal Palette: Inherit website.footer_custom -->
+    <template id="sirita_footer_dark" inherit_id="website.footer_custom" priority="20">
+        <xpath expr="//div[@id='footer']" position="replace">
+            <div id="footer" class="oe_structure oe_structure_solo" t-ignore="true" t-if="not no_footer">
+                <section class="s_text_block py-5 text-white" style="background-color: #171717; border-top: 1px solid #262626;">
+                    <div class="container">
+                        <div class="row gy-4">
+                            <!-- Kolom 1: Profil Brand & Deskripsi -->
+                            <div class="col-lg-4 col-md-6 footer-brand">
+                                <div class="d-flex align-items-center gap-2 mb-3">
+                                    <img src="/sirita_theme/static/img/logo.png" alt="Logo" style="height: 48px; filter: brightness(1.2);"/>
+                                    <div>
+                                        <h5 class="footer-logo-title mb-0">MA'HAD AL-JAMI'AH</h5>
+                                        <span class="footer-logo-sub">IAIN PAREPARE</span>
+                                    </div>
+                                </div>
+                                <p class="footer-desc text-muted mb-4" style="color: #9CA3AF !important;">
+                                    Pusat kaderisasi karakter islami, tahfidz Al-Qur'an, dan penguatan bahasa asing bagi civitas akademika IAIN Parepare menuju kampus berdaya saing global.
+                                </p>
+                                <div class="d-flex gap-2">
+                                    <span class="badge bg-dark border border-secondary text-light px-3 py-2 rounded-pill">
+                                        <i class="fa fa-shield text-success me-1"></i> Akreditasi Terpadu
+                                    </span>
+                                    <span class="badge bg-dark border border-secondary text-light px-3 py-2 rounded-pill">
+                                        <i class="fa fa-star text-warning me-1"></i> PTKIN Moderat
+                                    </span>
+                                </div>
+                            </div>
+
+                            <!-- Kolom 2: Program Unggulan Ma'had -->
+                            <div class="col-lg-2 col-md-6 col-6">
+                                <h6 class="footer-section-title text-uppercase font-weight-bold mb-3" style="color: #FFFFFF;">Program</h6>
+                                <ul class="footer-links list-unstyled">
+                                    <li class="mb-2"><a href="#program" class="text-decoration-none">Ta'lim Afkar Islami</a></li>
+                                    <li class="mb-2"><a href="#program" class="text-decoration-none">Tahsin &amp; Tahfidz</a></li>
+                                    <li class="mb-2"><a href="#program" class="text-decoration-none">Lembaga Bahasa Arab</a></li>
+                                    <li class="mb-2"><a href="#program" class="text-decoration-none">English Intensive</a></li>
+                                    <li class="mb-2"><a href="#program" class="text-decoration-none">Kajian Kitab Kuning</a></li>
+                                </ul>
+                            </div>
+
+                            <!-- Kolom 3: Layanan Digital & Portal -->
+                            <div class="col-lg-3 col-md-6 col-6">
+                                <h6 class="footer-section-title text-uppercase font-weight-bold mb-3" style="color: #FFFFFF;">Layanan Digital</h6>
+                                <ul class="footer-links list-unstyled">
+                                    <li class="mb-2"><a href="/syahadah/verify" class="text-decoration-none text-info font-weight-bold"><i class="fa fa-check-circle text-success me-1"></i> Verifikasi Syahadah</a></li>
+                                    <li class="mb-2"><a href="/web/login" class="text-decoration-none">Portal Mahasantri (SIMAHAD)</a></li>
+                                    <li class="mb-2"><a href="#asrama" class="text-decoration-none">Izin Kepulangan &amp; Perizinan</a></li>
+                                    <li class="mb-2"><a href="#billing" class="text-decoration-none">Informasi Iuran Ma'had</a></li>
+                                    <li class="mb-2"><a href="https://iainpare.ac.id" target="_blank" class="text-decoration-none">Portal Kampus IAIN Parepare</a></li>
+                                </ul>
+                            </div>
+
+                            <!-- Kolom 4: Sekretariat & Kontak -->
+                            <div class="col-lg-3 col-md-6">
+                                <h6 class="footer-section-title text-uppercase font-weight-bold mb-3" style="color: #FFFFFF;">Sekretariat</h6>
+                                <div class="footer-contact-item mb-2" style="color: #9CA3AF;">
+                                    <i class="fa fa-map-marker text-success me-2"></i>
+                                    <span>Gedung Ma'had Al-Jami'ah Kampus IAIN Parepare, Jl. Amal Bakti No. 8 Soreang, Kota Parepare, Sulawesi Selatan</span>
+                                </div>
+                                <div class="footer-contact-item mb-2" style="color: #9CA3AF;">
+                                    <i class="fa fa-envelope text-success me-2"></i>
+                                    <span>mahad@iainpare.ac.id</span>
+                                </div>
+                                <div class="footer-contact-item" style="color: #9CA3AF;">
+                                    <i class="fa fa-phone text-success me-2"></i>
+                                    <span>(0421) 21307 / 21308</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Garis Pembatas & Baris Hak Cipta -->
+                        <div class="footer-divider border-top border-secondary my-4" style="border-color: #262626 !important;"></div>
+                        <div class="footer-bottom-bar d-flex flex-column flex-md-row justify-content-between align-items-center py-2" style="font-size: 0.82rem; color: #6B7280;">
+                            <div>
+                                &amp;copy; <t t-out="datetime.datetime.now().year"/> Ma'had Al-Jami'ah IAIN Parepare. Dilindungi Hak Cipta.
+                            </div>
+                            <div class="d-flex gap-3 mt-2 mt-md-0">
+                                <a href="#" class="text-muted text-decoration-none">Kebijakan Privasi</a>
+                                <a href="#" class="text-muted text-decoration-none">Tata Tertib Asrama</a>
+                                <a href="#" class="text-muted text-decoration-none">Bantuan IT TIPD</a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </xpath>
+    </template>
+
+</odoo>

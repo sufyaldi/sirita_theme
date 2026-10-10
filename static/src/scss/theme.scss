@@ -1,0 +1,62 @@
+// theme.scss
+// Global Canvas Background
+body, #wrapwrap {
+    background-color: #FFFFFF;
+}
+
+// Navbar Minimalist Styling
+header#top {
+    border-bottom: 1px solid #E5E7EB;
+    background-color: #FFFFFF !important;
+
+    .navbar {
+        padding-top: 14px;
+        padding-bottom: 14px;
+
+        .nav-link {
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 0.93rem;
+            color: #171717 !important;
+            padding: 8px 16px !important;
+            transition: color 0.15s ease;
+
+            &:hover, &.active {
+                color: #0D9488 !important;
+            }
+        }
+    }
+}
+
+// Subtle Section Dividers
+section {
+    position: relative;
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+.bg-canvas-light {
+    background-color: #FAFAFA !important;
+}
+
+// Global Footer Styling
+footer {
+    background-color: #171717 !important;
+    color: #AFAFAF;
+    border-top: 1px solid #262626;
+
+    h5, h6 {
+        color: #FFFFFF !important;
+        font-family: 'Space Grotesk', sans-serif;
+    }
+
+    a {
+        color: #AFAFAF !important;
+        text-decoration: none;
+        transition: color 0.2s ease;
+
+        &:hover {
+            color: #2DD4BF !important;
+        }
+    }
+}

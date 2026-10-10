@@ -1,0 +1,25 @@
+// ==============================================================================
+// SIRITA THEME - TYPOGRAPHY & FONT IMPORTS
+// ==============================================================================
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    color: #171717;
+    letter-spacing: -0.01em;
+}
+
+h1, h2, h3, h4, h5, h6, .display-1, .display-2, .display-3, .display-4 {
+    font-family: 'Space Grotesk', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: 700;
+    color: #171717;
+    letter-spacing: -0.025em;
+}
+
+.text-muted {
+    color: #747474 !important;
+}
+
+.font-tech {
+    font-family: 'Space Grotesk', monospace, sans-serif;
+}

@@ -1,0 +1,237 @@
+// ==============================================================================
+// SIRITA THEME - NAVBAR & FOOTER STYLING (PURWADHIKA MODERN STYLE)
+// ==============================================================================
+
+// Header & Navbar
+header#top {
+    position: sticky;
+    top: 0;
+    z-index: 1030;
+    background-color: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid #E5E7EB;
+    transition: all 0.25s ease;
+
+    .navbar-brand {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+
+        .brand-logo-img {
+            height: 40px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .brand-text-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            .brand-title {
+                font-family: 'Space Grotesk', sans-serif;
+                font-weight: 700;
+                font-size: 1.05rem;
+                letter-spacing: -0.02em;
+                color: #171717;
+                line-height: 1.2;
+            }
+
+            .brand-subtitle {
+                font-family: 'Inter', sans-serif;
+                font-weight: 500;
+                font-size: 0.72rem;
+                letter-spacing: 0.04em;
+                text-transform: uppercase;
+                color: #0D9488;
+                line-height: 1;
+                margin-top: 2px;
+            }
+        }
+    }
+
+    .navbar-nav {
+        .nav-item {
+            .nav-link {
+                font-family: 'Inter', sans-serif;
+                font-weight: 600;
+                font-size: 0.92rem;
+                color: #4B5563 !important;
+                padding: 10px 16px !important;
+                border-radius: 8px;
+                transition: all 0.15s ease;
+
+                &:hover {
+                    color: #0D9488 !important;
+                    background-color: #F0FDFA;
+                }
+
+                &.active {
+                    color: #0D9488 !important;
+                    font-weight: 700;
+                }
+            }
+        }
+    }
+
+    .header-cta-group {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+
+        .btn-portal-santri {
+            background-color: #0D9488;
+            color: #FFFFFF !important;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 0.88rem;
+            padding: 9px 20px;
+            border-radius: 9999px; // Full pill radius Purwadhika style
+            border: 1px solid #0D9488;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            box-shadow: 0 2px 4px rgba(13, 148, 136, 0.2);
+            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+
+            &:hover {
+                background-color: #0F766E;
+                border-color: #0F766E;
+                transform: translateY(-1px);
+                box-shadow: 0 4px 10px rgba(13, 148, 136, 0.35);
+            }
+        }
+
+        .btn-syahadah-quick {
+            background-color: #CCF5DC;
+            color: #065F46 !important;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 0.88rem;
+            padding: 9px 18px;
+            border-radius: 9999px;
+            border: 1px solid #A7F3D0;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            text-decoration: none;
+            transition: all 0.2s ease;
+
+            &:hover {
+                background-color: #A7F3D0;
+                color: #064E3B !important;
+            }
+        }
+    }
+}
+
+// Modern Dark Footer (Purwadhika Charcoal Palette)
+footer#bottom {
+    background-color: #171717 !important;
+    color: #9CA3AF !important;
+    font-family: 'Inter', sans-serif;
+    border-top: 1px solid #262626;
+    padding-top: 60px;
+    padding-bottom: 30px;
+
+    .footer-brand {
+        .footer-logo-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 1.35rem;
+            letter-spacing: -0.02em;
+            color: #FFFFFF;
+            margin-bottom: 6px;
+        }
+
+        .footer-logo-sub {
+            color: #2DD4BF;
+            font-size: 0.82rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 16px;
+        }
+
+        .footer-desc {
+            font-size: 0.88rem;
+            line-height: 1.6;
+            color: #9CA3AF;
+            max-width: 360px;
+        }
+    }
+
+    .footer-section-title {
+        font-family: 'Space Grotesk', sans-serif;
+        font-weight: 700;
+        font-size: 1rem;
+        letter-spacing: -0.01em;
+        color: #FFFFFF !important;
+        margin-bottom: 18px;
+    }
+
+    .footer-links {
+        list-style: none;
+        padding-left: 0;
+        margin-bottom: 0;
+
+        li {
+            margin-bottom: 10px;
+
+            a {
+                color: #9CA3AF !important;
+                font-size: 0.88rem;
+                text-decoration: none;
+                transition: color 0.15s ease, transform 0.15s ease;
+                display: inline-block;
+
+                &:hover {
+                    color: #2DD4BF !important;
+                    transform: translateX(3px);
+                }
+            }
+        }
+    }
+
+    .footer-contact-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        margin-bottom: 12px;
+        font-size: 0.88rem;
+        color: #9CA3AF;
+
+        i {
+            color: #2DD4BF;
+            font-size: 1rem;
+            margin-top: 2px;
+            flex-shrink: 0;
+        }
+    }
+
+    .footer-divider {
+        border-top: 1px solid #262626;
+        margin-top: 40px;
+        margin-bottom: 24px;
+    }
+
+    .footer-bottom-bar {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 0.82rem;
+        color: #6B7280;
+
+        a {
+            color: #9CA3AF !important;
+            text-decoration: none;
+
+            &:hover {
+                color: #2DD4BF !important;
+            }
+        }
+    }
+}

@@ -1,0 +1,555 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Homepage Template Khusus Ma'had Al-Jami'ah IAIN Parepare -->
+    <template id="sirita_mahad_homepage" inherit_id="website.homepage" name="Ma'had Al-Jami'ah Homepage" priority="30">
+        <xpath expr="." position="replace">
+            <t t-call="website.layout">
+                <div id="wrap" class="oe_structure oe_empty limit-min homepage sirita_theme_homepage">
+
+                    <!-- ================= 1. RUNNING TEXT TICKER (MODERN GLASS MARQUEE DARI HOSTEL ANNOUNCEMENT) ================= -->
+                    <section class="ticker-section py-2" style="background: linear-gradient(90deg, #0f766e 0%, #0d9488 100%);">
+                        <div class="container">
+                            <t t-set="live_announcements" t-value="request.env['hostel.announcement'].sudo().search([('state', '=', 'published'), ('target_type', '=', 'all')], order='create_date desc', limit=5) if 'hostel.announcement' in request.env else []"/>
+
+                            <div class="d-flex align-items-center rounded-pill px-3 py-1 bg-white bg-opacity-10 border border-white border-opacity-25 shadow-sm">
+                                <div class="badge rounded-pill bg-white text-dark d-flex align-items-center px-3 py-1 me-3 flex-shrink-0 fw-bold">
+                                    <span class="me-1">🔔</span> SIARAN MAKLUMAT
+                                </div>
+                                <div class="flex-grow-1 overflow-hidden position-relative">
+                                    <marquee behavior="scroll" direction="left" scrollamount="6" class="m-0 text-white d-flex align-items-center" onmouseover="this.stop();" onmouseout="this.start();">
+                                        <t t-if="live_announcements">
+                                            <t t-foreach="[1, 2, 3]" t-as="repeat_idx">
+                                                <t t-foreach="live_announcements" t-as="ann">
+                                                    <span class="text-white text-decoration-none me-5 fw-medium">
+                                                        <span class="badge rounded-pill bg-white text-dark me-2 small">
+                                                            <t t-out="ann.category_id.name or 'Pengumuman'"/>
+                                                        </span>
+                                                        <t t-out="ann.name"/>
+                                                    </span>
+                                                </t>
+                                            </t>
+                                        </t>
+                                        <t t-else="">
+                                            <span class="me-5">🕌 Pendaftaran Sertifikasi Kelulusan Ma'had (Syahadah) Semester Ini Telah Dibuka. Silakan Cek Syahadah Anda Melalui Menu Verifikasi.</span>
+                                            <span class="me-5">📖 Jadwal Kajian Ta'lim Subuh &amp; Setoran Hafalan Al-Qur'an Berlangsung Setiap Hari di Masjid Kampus IAIN Parepare.</span>
+                                        </t>
+                                    </marquee>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- ================= 2. HERO BANNER SECTION (IDENTITY & WELCOME) ================= -->
+                    <section class="hero-banner py-5 position-relative text-white" style="background: linear-gradient(135deg, #09403b 0%, #0d9488 60%, #115e59 100%); overflow: hidden;">
+                        <div class="container py-lg-4 position-relative" style="z-index: 2;">
+                            <div class="row align-items-center g-4">
+                                <div class="col-lg-7 text-center text-lg-start">
+                                    <div class="d-inline-flex align-items-center rounded-pill px-3 py-1 mb-3 bg-white bg-opacity-15 border border-white border-opacity-25 text-white small fw-bold">
+                                        <span class="me-2">🕌</span> PUSAT MA'HAD AL-JAMI'AH IAIN PAREPARE
+                                    </div>
+                                    <h1 class="display-5 fw-bolder mb-3 text-white" style="line-height: 1.2; letter-spacing: -0.02em;">
+                                        Membentuk Generasi Cendekia, Qur'ani &amp; Berakhlak Karimah.
+                                    </h1>
+                                    <p class="fs-5 text-white-50 mb-4" style="line-height: 1.6; max-width: 620px;">
+                                        Pusat pembinaan karakter, standarisasi hafalan Al-Qur'an, pendalaman kitab turats, serta integrasi bahasa Arab dan Inggris bagi civitas akademika IAIN Parepare.
+                                    </p>
+                                    <div class="d-flex flex-wrap gap-2 justify-content-center justify-content-lg-start">
+                                        <a href="/syahadah/verify" class="btn btn-lg btn-warning rounded-pill px-4 fw-bold shadow">
+                                            <i class="fa fa-qrcode me-2"/>Verifikasi Syahadah
+                                        </a>
+                                        <a href="#kurikulum" class="btn btn-lg btn-outline-light rounded-pill px-4 fw-medium">
+                                            <i class="fa fa-book me-2"/>4 Pilar Kurikulum
+                                        </a>
+                                        <a href="/web/login" class="btn btn-lg btn-light rounded-pill px-4 fw-bold text-dark">
+                                            <i class="fa fa-user-circle me-2"/>Portal Santri
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-lg-5 text-center">
+                                    <div class="position-relative d-inline-block p-4 rounded-4" style="background: rgba(255, 255, 255, 0.08); backdrop-filter: blur(8px); border: 1px solid rgba(255, 255, 255, 0.2);">
+                                        <img src="/sirita_theme/static/img/logo_iain_emblem.png" alt="Emblem IAIN Parepare" class="img-fluid" style="max-height: 240px; filter: drop-shadow(0 15px 30px rgba(0,0,0,0.3));" loading="lazy"/>
+                                        <div class="mt-3 text-white fw-bold small text-uppercase letter-spacing-1">
+                                            IAIN PAREPARE • MA'HAD AL-JAMI'AH
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- ================= 3. 4 QUICK ACTION SERVICES (ALA SAHAJA & MIU) ================= -->
+                    <section class="quick-services py-4" style="margin-top: -30px; position: relative; z-index: 5;">
+                        <div class="container">
+                            <div class="row g-3">
+                                <div class="col-12 col-sm-6 col-lg-3">
+                                    <a href="/syahadah/verify" class="text-decoration-none">
+                                        <div class="card p-3 border-0 shadow rounded-4 h-100 transition-hover" style="background: #ffffff; border-left: 5px solid #0d9488 !important;">
+                                            <div class="d-flex align-items-center mb-2">
+                                                <div class="rounded-circle p-2 me-3 text-white d-flex align-items-center justify-content-center flex-shrink-0" style="width: 48px; height: 48px; background-color: #0d9488; font-size: 20px;">
+                                                    <i class="fa fa-qrcode" style="font-size: 22px;"/>
+                                                </div>
+                                                <div>
+                                                    <h6 class="fw-bold mb-0 text-dark">Cek Syahadah</h6>
+                                                    <small class="text-muted">Validasi QR Resmi</small>
+                                                </div>
+                                            </div>
+                                            <p class="small text-muted mb-0">Verifikasi keaslian sertifikat kelulusan Ma'had syarat skripsi.</p>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-12 col-sm-6 col-lg-3">
+                                    <a href="/web/login" class="text-decoration-none">
+                                        <div class="card p-3 border-0 shadow rounded-4 h-100 transition-hover" style="background: #ffffff; border-left: 5px solid #059669 !important;">
+                                            <div class="d-flex align-items-center mb-2">
+                                                <div class="rounded-circle p-2 me-3 text-white d-flex align-items-center justify-content-center flex-shrink-0" style="width: 48px; height: 48px; background-color: #059669; font-size: 20px;">
+                                                    <i class="fa fa-id-card-o" style="font-size: 20px;"/>
+                                                </div>
+                                                <div>
+                                                    <h6 class="fw-bold mb-0 text-dark">E-Perizinan</h6>
+                                                    <small class="text-muted">Pesiar &amp; Bermalam</small>
+                                                </div>
+                                            </div>
+                                            <p class="small text-muted mb-0">Pengajuan izin keluar asrama online &amp; gate control gerbang.</p>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-12 col-sm-6 col-lg-3">
+                                    <a href="/web/login" class="text-decoration-none">
+                                        <div class="card p-3 border-0 shadow rounded-4 h-100 transition-hover" style="background: #ffffff; border-left: 5px solid #d97706 !important;">
+                                            <div class="d-flex align-items-center mb-2">
+                                                <div class="rounded-circle p-2 me-3 text-white d-flex align-items-center justify-content-center flex-shrink-0" style="width: 48px; height: 48px; background-color: #d97706; font-size: 20px;">
+                                                    <i class="fa fa-balance-scale" style="font-size: 20px;"/>
+                                                </div>
+                                                <div>
+                                                    <h6 class="fw-bold mb-0 text-dark">Buku Kendali</h6>
+                                                    <small class="text-muted">Disiplin &amp; Takzir</small>
+                                                </div>
+                                            </div>
+                                            <p class="small text-muted mb-0">Monitoring poin pelanggaran santri &amp; sanksi edukatif terpadu.</p>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-12 col-sm-6 col-lg-3">
+                                    <a href="/contactus" class="text-decoration-none">
+                                        <div class="card p-3 border-0 shadow rounded-4 h-100 transition-hover" style="background: #ffffff; border-left: 5px solid #2563eb !important;">
+                                            <div class="d-flex align-items-center mb-2">
+                                                <div class="rounded-circle p-2 me-3 text-white d-flex align-items-center justify-content-center flex-shrink-0" style="width: 48px; height: 48px; background-color: #2563eb; font-size: 20px;">
+                                                    <i class="fa fa-university" style="font-size: 20px;"/>
+                                                </div>
+                                                <div>
+                                                    <h6 class="fw-bold mb-0 text-dark">Asrama &amp; BLU</h6>
+                                                    <small class="text-muted">Hunian &amp; Iuran</small>
+                                                </div>
+                                            </div>
+                                            <p class="small text-muted mb-0">Informasi gedung hunian asrama &amp; tagihan penerimaan BLU.</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- ================= 4. LIVE METRICS STAT COUNTER (ALA UIN SSC SIBER) ================= -->
+                    <section class="py-4">
+                        <div class="container">
+                            <div class="row g-3 text-center p-4 rounded-4 shadow-sm bg-white" style="border: 1px solid #e5e7eb;">
+                                <div class="col-6 col-md-3 border-end">
+                                    <div class="display-6 fw-bold text-success mb-1">1.250+</div>
+                                    <div class="text-muted small fw-bold text-uppercase">Mahasantri Terbina</div>
+                                </div>
+                                <div class="col-6 col-md-3 border-end-md">
+                                    <div class="display-6 fw-bold text-primary mb-1">4 Gedung</div>
+                                    <div class="text-muted small fw-bold text-uppercase">Asrama Putra &amp; Putri</div>
+                                </div>
+                                <div class="col-6 col-md-3 border-end">
+                                    <div class="display-6 fw-bold text-warning mb-1">Juz 30</div>
+                                    <div class="text-muted small fw-bold text-uppercase">Standar Tahfizh Mutqin</div>
+                                </div>
+                                <div class="col-6 col-md-3">
+                                    <div class="display-6 fw-bold text-info mb-1">100%</div>
+                                    <div class="text-muted small fw-bold text-uppercase">Syarat Skripsi Terintegrasi</div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- ================= 5. 4 PILAR KURIKULUM PEMBINAAN KESANTRIAN ================= -->
+                    <section id="kurikulum" class="py-5" style="background: #f8fafc;">
+                        <div class="container">
+                            <div class="text-center mb-5">
+                                <span class="badge rounded-pill px-3 py-2 text-success bg-success-subtle fw-bold mb-2">
+                                    STANDAR KOMPETENSI MA'HAD
+                                </span>
+                                <h2 class="fw-bolder text-dark">
+                                    4 Pilar Kurikulum Pembinaan Kesantrian
+                                </h2>
+                                <p class="text-muted mx-auto" style="max-width: 650px;">
+                                    Kurikulum terstruktur yang diujikan dalam Sertifikat Kelulusan Ma'had (Syahadah) sebagai prasyarat wajib munaqasyah skripsi di IAIN Parepare.
+                                </p>
+                            </div>
+
+                            <div class="row g-4">
+                                <div class="col-12 col-md-6 col-lg-3">
+                                    <div class="card p-4 rounded-4 shadow-sm border-0 h-100 bg-white text-center transition-hover">
+                                        <div class="mx-auto mb-3 p-3 rounded-circle bg-success-subtle text-success fs-2 d-flex align-items-center justify-content-center" style="width: 65px; height: 65px;">
+                                            📖
+                                        </div>
+                                        <h5 class="fw-bold text-dark mb-2">Bacaan Al-Qur'an</h5>
+                                        <p class="text-muted small mb-3">
+                                            Tahsin, tartil, dan penguasaan kaidah ilmu tajwid bersanad untuk seluruh mahasantri.
+                                        </p>
+                                        <span class="badge bg-light text-success border">Standar Mutu: A / B</span>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-6 col-lg-3">
+                                    <div class="card p-4 rounded-4 shadow-sm border-0 h-100 bg-white text-center transition-hover">
+                                        <div class="mx-auto mb-3 p-3 rounded-circle bg-primary-subtle text-primary fs-2 d-flex align-items-center justify-content-center" style="width: 65px; height: 65px;">
+                                            🕌
+                                        </div>
+                                        <h5 class="fw-bold text-dark mb-2">Hafalan Surat Pendek</h5>
+                                        <p class="text-muted small mb-3">
+                                            Setoran hafalan mutqin Juz 30 (Juz 'Amma) dan surat pilihan (Yasin, Al-Waqi'ah, Al-Mulk).
+                                        </p>
+                                        <span class="badge bg-light text-primary border">Target: Mutqin</span>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-6 col-lg-3">
+                                    <div class="card p-4 rounded-4 shadow-sm border-0 h-100 bg-white text-center transition-hover">
+                                        <div class="mx-auto mb-3 p-3 rounded-circle bg-warning-subtle text-warning fs-2 d-flex align-items-center justify-content-center" style="width: 65px; height: 65px;">
+                                            🤲
+                                        </div>
+                                        <h5 class="fw-bold text-dark mb-2">Hafalan Do'a Harian</h5>
+                                        <p class="text-muted small mb-3">
+                                            Do'a ma'tsurat harian, dzikir setelah shalat fardhu, dan adab keseharian sunnah Rasulullah SAW.
+                                        </p>
+                                        <span class="badge bg-light text-warning border">Praktik Keseharian</span>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-6 col-lg-3">
+                                    <div class="card p-4 rounded-4 shadow-sm border-0 h-100 bg-white text-center transition-hover">
+                                        <div class="mx-auto mb-3 p-3 rounded-circle bg-info-subtle text-info fs-2 d-flex align-items-center justify-content-center" style="width: 65px; height: 65px;">
+                                            📚
+                                        </div>
+                                        <h5 class="fw-bold text-dark mb-2">Praktik Ibadah &amp; Ta'lim</h5>
+                                        <p class="text-muted small mb-3">
+                                            Kajian kitab turats (Ta'lim Muta'allim, Safinah), khitabah 3 bahasa, dan imam shalat rawatib.
+                                        </p>
+                                        <span class="badge bg-light text-info border">Kajian Ba'da Subuh</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- ================= 6. BERITA & DOKUMENTASI KEGIATAN KESANTRIAN ================= -->
+                    <section class="py-5 bg-white">
+                        <div class="container">
+                            <div class="d-flex justify-content-between align-items-center mb-4">
+                                <div>
+                                    <span class="badge rounded-pill px-3 py-1 text-primary bg-primary-subtle fw-bold mb-1">KABAR KAMPUS</span>
+                                    <h3 class="fw-bold text-dark mb-0">Dokumentasi &amp; Berita Ma'had</h3>
+                                </div>
+                                <a href="/blog" class="btn btn-outline-dark rounded-pill px-3 btn-sm">
+                                    Lihat Semua Berita <i class="fa fa-arrow-right ms-1"/>
+                                </a>
+                            </div>
+
+                            <t t-set="latest_blogs" t-value="request.env['blog.post'].sudo().search([('website_published', '=', True)], limit=4, order='published_date desc, id desc') if 'blog.post' in request.env else []"/>
+                            <div class="row g-4">
+                                <t t-if="latest_blogs">
+                                    <t t-foreach="latest_blogs" t-as="blog">
+                                        <div class="col-12 col-sm-6 col-lg-3">
+                                            <a t-att-href="blog.website_url" class="text-decoration-none text-dark d-block h-100">
+                                                <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden transition-hover">
+                                                    <t t-set="cover_raw" t-value="json.loads(blog.cover_properties or '{}').get('background-image', '') if blog.cover_properties else ''"/>
+                                                    <t t-set="cover_url" t-value="cover_raw.replace('url(&quot;', '').replace('&quot;)', '').replace('url(\'', '').replace('\')', '').replace('url(', '').replace(')', '') if cover_raw else ''"/>
+                                                    <div style="height: 180px; overflow: hidden; background: #f1f5f9;">
+                                                        <t t-if="cover_url">
+                                                            <img t-att-src="cover_url" class="card-img-top w-100 h-100" style="object-fit: cover;" alt="Cover" loading="lazy"/>
+                                                        </t>
+                                                        <t t-else="">
+                                                            <div class="w-100 h-100 d-flex align-items-center justify-content-center text-muted fs-1 bg-light">
+                                                                🕌
+                                                            </div>
+                                                        </t>
+                                                    </div>
+                                                    <div class="card-body p-3">
+                                                        <span class="badge bg-teal-subtle text-teal rounded-pill small mb-2">
+                                                            <t t-out="blog.blog_id.name or 'Kabar Ma\'had'"/>
+                                                        </span>
+                                                        <h6 class="fw-bold mb-1 text-truncate-2">
+                                                            <t t-out="blog.name"/>
+                                                        </h6>
+                                                        <p class="small text-muted mb-0 text-truncate-2">
+                                                            <t t-out="blog.subtitle or 'Kabar dan pengumuman pembinaan mahasantri...'"/>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </t>
+                                </t>
+                                <t t-else="">
+                                    <div class="col-12 text-center py-4 text-muted">
+                                        <p>Belum ada artikel berita yang dipublikasikan.</p>
+                                    </div>
+                                </t>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- ================= 6.5 PAPAN MADING & MAKLUMAT ASRAMA (LIVE HOSTEL ANNOUNCEMENT) ================= -->
+                    <section class="py-5 bg-white border-top border-bottom" style="background: #ffffff;">
+                        <div class="container">
+                            <div class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center mb-4">
+                                <div>
+                                    <span class="badge rounded-pill px-3 py-1 bg-warning text-dark fw-bold mb-1">
+                                        📢 KOMUNIKASI &amp; INFO ASRAMA
+                                    </span>
+                                    <h3 class="fw-bold text-dark mb-1">Papan Mading &amp; Siaran Musyrif</h3>
+                                    <p class="text-muted small mb-0">Maklumat resmi pengasuhan, jam malam, dan agenda kesantrian terpublikasi.</p>
+                                </div>
+                                <div class="mt-3 mt-md-0">
+                                    <span class="badge bg-light text-dark border px-3 py-2 rounded-pill small">
+                                        <i class="fa fa-circle text-success me-1"/> Siaran Aktif Real-time
+                                    </span>
+                                </div>
+                            </div>
+
+                            <t t-set="mading_announcements" t-value="request.env['hostel.announcement'].sudo().search([('state', '=', 'published'), ('target_type', '=', 'all')], order='priority desc, create_date desc', limit=3) if 'hostel.announcement' in request.env else []"/>
+                            <div class="row g-4">
+                                <t t-if="mading_announcements">
+                                    <t t-foreach="mading_announcements" t-as="item">
+                                        <div class="col-12 col-md-4">
+                                            <div class="card h-100 border-0 rounded-4 shadow-sm p-4 transition-hover" t-attf-style="background: #ffffff; border-top: 4px solid #{'#dc2626' if item.priority in ['urgent', 'high'] else '#0d9488'} !important; border: 1px solid #e2e8f0;">
+                                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                                    <span t-attf-class="badge rounded-pill px-2 py-1 small fw-bold #{'bg-danger text-white' if item.priority in ['urgent', 'high'] else 'bg-teal-subtle text-teal'}">
+                                                        <t t-out="'🔴 PENTING' if item.priority in ['urgent', 'high'] else '🟢 MAKLUMAT'"/>
+                                                    </span>
+                                                    <span class="badge bg-light text-secondary border small">
+                                                        <t t-out="item.category_id.name or 'Umum'"/>
+                                                    </span>
+                                                </div>
+                                                <h5 class="fw-bold text-dark mb-2" style="font-size: 1.05rem;">
+                                                    <t t-out="item.name"/>
+                                                </h5>
+                                                <div class="text-muted small mb-3 flex-grow-1" style="line-height: 1.6;">
+                                                    <t t-out="item.content" t-options="{'widget': 'html'}"/>
+                                                </div>
+                                                <div class="pt-2 border-top d-flex justify-content-between align-items-center small text-muted">
+                                                    <span><i class="fa fa-calendar me-1"/> <t t-out="item.create_date.strftime('%d %B %Y')"/></span>
+                                                    <span class="fw-medium text-success"><i class="fa fa-check-circle me-1"/> Resmi Terverifikasi</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </t>
+                                </t>
+                                <t t-else="">
+                                    <div class="col-12 text-center py-4 text-muted">
+                                        <p>Belum ada maklumat aktif di papan mading.</p>
+                                    </div>
+                                </t>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- ================= 7. JADWAL RUTINITAS HARIAN MAHASANTRI (DAILY TIMELINE) ================= -->
+                    <section id="asrama" class="py-5" style="background: #f8fafc; border-top: 1px solid #e2e8f0; border-bottom: 1px solid #e2e8f0;">
+                        <div class="container">
+                            <div class="text-center mb-5">
+                                <span class="badge rounded-pill px-3 py-2 text-primary bg-primary-subtle fw-bold mb-2">
+                                    DISIPLIN &amp; KEBIASAAN BAIK
+                                </span>
+                                <h2 class="fw-bolder text-dark">
+                                    Rutinitas Harian Mahasantri Ma'had
+                                </h2>
+                                <p class="text-muted mx-auto" style="max-width: 650px;">
+                                    Menyeimbangkan penguatan spiritual, ibadah yaumiyah, dan tuntutan akademik perkuliahan formal di IAIN Parepare.
+                                </p>
+                            </div>
+
+                            <div class="row g-3 justify-content-center">
+                                <div class="col-12 col-md-6 col-lg-3">
+                                    <div class="card p-3 border-0 rounded-4 shadow-sm h-100 bg-white" style="border-top: 4px solid #0d9488 !important;">
+                                        <div class="d-flex align-items-center mb-2">
+                                            <span class="badge bg-teal-subtle text-teal fw-bold px-2 py-1 rounded-pill me-2">04.30 - 06.00</span>
+                                            <span class="small text-muted fw-bold">Pagi</span>
+                                        </div>
+                                        <h6 class="fw-bold text-dark mb-1">Subuh, Dzikir &amp; Ta'lim</h6>
+                                        <p class="small text-muted mb-0">
+                                            Shalat Subuh berjamaah di masjid, tadarus Al-Qur'an, dan kajian ba'da Subuh kitab turats.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-6 col-lg-3">
+                                    <div class="card p-3 border-0 rounded-4 shadow-sm h-100 bg-white" style="border-top: 4px solid #2563eb !important;">
+                                        <div class="d-flex align-items-center mb-2">
+                                            <span class="badge bg-primary-subtle text-primary fw-bold px-2 py-1 rounded-pill me-2">07.30 - 16.00</span>
+                                            <span class="small text-muted fw-bold">Siang</span>
+                                        </div>
+                                        <h6 class="fw-bold text-dark mb-1">Perkuliahan Fakultas</h6>
+                                        <p class="small text-muted mb-0">
+                                            Aktivitas akademik di ruang kuliah reguler pada masing-masing fakultas &amp; program studi.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-6 col-lg-3">
+                                    <div class="card p-3 border-0 rounded-4 shadow-sm h-100 bg-white" style="border-top: 4px solid #d97706 !important;">
+                                        <div class="d-flex align-items-center mb-2">
+                                            <span class="badge bg-warning-subtle text-warning fw-bold px-2 py-1 rounded-pill me-2">18.00 - 19.30</span>
+                                            <span class="small text-muted fw-bold">Maghrib</span>
+                                        </div>
+                                        <h6 class="fw-bold text-dark mb-1">Maghrib &amp; Setoran Hafalan</h6>
+                                        <p class="small text-muted mb-0">
+                                            Shalat Maghrib berjamaah, pembacaan Ratib / Wirid, dan bimbingan tahfizh surat pilihan.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-6 col-lg-3">
+                                    <div class="card p-3 border-0 rounded-4 shadow-sm h-100 bg-white" style="border-top: 4px solid #7c3aed !important;">
+                                        <div class="d-flex align-items-center mb-2">
+                                            <span class="badge bg-purple-subtle text-purple fw-bold px-2 py-1 rounded-pill me-2">20.00 - 22.00</span>
+                                            <span class="small text-muted fw-bold">Malam</span>
+                                        </div>
+                                        <h6 class="fw-bold text-dark mb-1">Mudzakarah &amp; Jam Malam</h6>
+                                        <p class="small text-muted mb-0">
+                                            Belajar mandiri, pengembangan bahasa Arab/Inggris, evaluasi musyrif, dan istirahat malam.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- ================= 8. SAMBUTAN KEPALA MA'HAD & PROFIL KEPEMIMPINAN ================= -->
+                    <section id="profil" class="py-5 bg-white">
+                        <div class="container">
+                            <div class="row align-items-center g-4 p-4 p-lg-5 rounded-4 shadow-sm" style="background: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%); border: 1px solid #bbf7d0;">
+                                <div class="col-lg-8">
+                                    <span class="badge rounded-pill px-3 py-1 bg-success text-white fw-bold mb-2">
+                                        PESAN KEPEMIMPINAN
+                                    </span>
+                                    <h3 class="fw-bolder text-dark mb-3">
+                                        "Ma'had Al-Jami'ah adalah Rumah Rohani &amp; Karakter Mahasiswa IAIN Parepare"
+                                    </h3>
+                                    <p class="text-secondary mb-3" style="line-height: 1.7; font-size: 1.05rem;">
+                                        Pusat Ma'had Al-Jami'ah hadir sebagai wahana integrasi antara tradisi keilmuan pesantren (*turats*) dan dinamika akademik modern. Melalui kurikulum pembinaan yang terukur, kami memastikan setiap lulusan IAIN Parepare memiliki standar membaca Al-Qur'an yang tartil, hafal surat-surat penting, terbiasa beribadah secara tertib, dan memiliki kedewasaan akhlak yang moderat di tengah masyarakat.
+                                    </p>
+                                    <div class="d-flex align-items-center pt-2">
+                                        <div>
+                                            <h6 class="fw-bold text-dark mb-0 fs-5">Dr. H. Muh. Idris, M.Ag.</h6>
+                                            <span class="text-muted small">Kepala Pusat Ma'had Al-Jami'ah IAIN Parepare</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 text-center">
+                                    <div class="p-3 bg-white rounded-4 shadow-sm d-inline-block border">
+                                        <div class="rounded-3 p-4 bg-light text-center" style="min-width: 200px;">
+                                            <div class="fs-1 mb-2">🎓</div>
+                                            <h6 class="fw-bold mb-1 text-dark">Lulusan Bersyahadah</h6>
+                                            <p class="small text-muted mb-2">Prasyarat Munaqasyah &amp; Buka Kunci Skripsi di SIAKAD Kampus</p>
+                                            <a href="/syahadah/verify" class="btn btn-sm btn-outline-success rounded-pill px-3">
+                                                Cek Status Kelulusan
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- ================= 9. INTERACTIVE QUICK VERIFICATION SEARCH WIDGET ================= -->
+                    <section class="py-5" style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); color: white;">
+                        <div class="container text-center py-3">
+                            <span class="badge rounded-pill px-3 py-1 bg-success text-white fw-bold mb-2">
+                                VALIDASI MANDIRI
+                            </span>
+                            <h2 class="fw-bold text-white mb-2">Pencarian Cepat Syahadah Mahasantri</h2>
+                            <p class="text-white-50 mx-auto mb-4" style="max-width: 600px;">
+                                Masukkan Nomor Induk Mahasiswa (NIM) atau Nomor Sertifikat untuk memeriksa status keaslian kelulusan pembinaan Ma'had Anda.
+                            </p>
+                            <div class="row justify-content-center">
+                                <div class="col-12 col-md-8 col-lg-6">
+                                    <form action="/syahadah/verify" method="get" class="d-flex p-2 bg-white rounded-pill shadow-lg">
+                                        <input type="text" name="q" class="form-control border-0 rounded-pill px-4 shadow-none" placeholder="Masukkan NIM (contoh: 2210101001)..." required="required" style="font-size: 1rem;"/>
+                                        <button type="submit" class="btn btn-success rounded-pill px-4 fw-bold flex-shrink-0">
+                                            <i class="fa fa-search me-1"/> Cek Status
+                                        </button>
+                                    </form>
+                                    <div class="mt-3 text-white-50 small">
+                                        <i class="fa fa-shield text-success me-1"/> Data terintegrasi langsung dengan database resmi Ma'had Al-Jami'ah &amp; SIAKAD IAIN Parepare.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- ================= 10. FAQ & PERTANYAAN UMUM MAHASANTRI ================= -->
+                    <section class="py-5 bg-white">
+                        <div class="container">
+                            <div class="text-center mb-5">
+                                <span class="badge rounded-pill px-3 py-2 text-primary bg-primary-subtle fw-bold mb-2">
+                                    PUSAT BANTUAN &amp; FAQ
+                                </span>
+                                <h2 class="fw-bolder text-dark">
+                                    Pertanyaan Sering Diajukan
+                                </h2>
+                                <p class="text-muted mx-auto" style="max-width: 650px;">
+                                    Informasi praktis seputar kewajiban asrama, ujian kompetensi syahadah, dan perizinan.
+                                </p>
+                            </div>
+
+                            <div class="row g-4 justify-content-center">
+                                <div class="col-12 col-lg-8">
+                                    <div class="accordion" id="accordionMahadFAQ">
+                                        <div class="accordion-item border-0 mb-3 shadow-sm rounded-4 overflow-hidden">
+                                            <h2 class="accordion-header" id="headingOne">
+                                                <button class="accordion-button fw-bold text-dark bg-light collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                                    Apakah Syahadah Ma'had wajib untuk pendaftaran munaqasyah skripsi?
+                                                </button>
+                                            </h2>
+                                            <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionMahadFAQ">
+                                                <div class="accordion-body text-secondary small" style="line-height: 1.6;">
+                                                    Ya, berdasarkan Keputusan Rektor IAIN Parepare, Sertifikat Kelulusan Ma'had Al-Jami'ah (Syahadah) merupakan salah satu syarat wajib berkas munaqasyah dan yudisium kelulusan sarjana di seluruh fakultas.
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="accordion-item border-0 mb-3 shadow-sm rounded-4 overflow-hidden">
+                                            <h2 class="accordion-header" id="headingTwo">
+                                                <button class="accordion-button fw-bold text-dark bg-light collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                                    Bagaimana jika ada nilai kompetensi yang belum mencapai standar kelulusan?
+                                                </button>
+                                            </h2>
+                                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionMahadFAQ">
+                                                <div class="accordion-body text-secondary small" style="line-height: 1.6;">
+                                                    Mahasantri yang belum memenuhi nilai standar kelulusan (minimal Baik/B) pada salah satu dari 4 pilar kompetensi dapat mengikuti bimbingan remidial/ta'lim intensif bersama Musyrif/ah pembina sebelum jadwal munaqasyah.
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="accordion-item border-0 mb-3 shadow-sm rounded-4 overflow-hidden">
+                                            <h2 class="accordion-header" id="headingThree">
+                                                <button class="accordion-button fw-bold text-dark bg-light collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                                    Bagaimana alur pengajuan izin keluar asrama (pesiar/bermalam)?
+                                                </button>
+                                            </h2>
+                                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionMahadFAQ">
+                                                <div class="accordion-body text-secondary small" style="line-height: 1.6;">
+                                                    Mahasantri login ke Portal Santri, memilih menu E-Perizinan, mengisi keperluan dan durasi izin. Setelah disetujui Musyrif/Murabbi, sistem mengenerate QR Gate Pass yang ditunjukkan kepada petugas keamanan asrama di pintu gerbang.
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                </div>
+            </t>
+        </xpath>
+    </template>
+
+</odoo>

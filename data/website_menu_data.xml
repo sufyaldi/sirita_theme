@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!-- Root Menu Website 2 is id 5. Let's add standard Ma'had menus -->
+        <record id="menu_mahad_profil" model="website.menu">
+            <field name="name">Profil Ma'had</field>
+            <field name="manual_url">#profil</field>
+            <field name="parent_id" eval="5"/>
+            <field name="website_id" eval="2"/>
+            <field name="sequence">20</field>
+        </record>
+
+        <record id="menu_mahad_program" model="website.menu">
+            <field name="name">Program Pembinaan</field>
+            <field name="manual_url">#program</field>
+            <field name="parent_id" eval="5"/>
+            <field name="website_id" eval="2"/>
+            <field name="sequence">30</field>
+        </record>
+
+        <record id="menu_mahad_asrama" model="website.menu">
+            <field name="name">Kehidupan Asrama</field>
+            <field name="manual_url">#asrama</field>
+            <field name="parent_id" eval="5"/>
+            <field name="website_id" eval="2"/>
+            <field name="sequence">40</field>
+        </record>
+
+        <record id="menu_mahad_syahadah" model="website.menu">
+            <field name="name">Verifikasi Syahadah</field>
+            <field name="manual_url">/syahadah/verify</field>
+            <field name="parent_id" eval="5"/>
+            <field name="website_id" eval="2"/>
+            <field name="sequence">50</field>
+        </record>
+    </data>
+</odoo>

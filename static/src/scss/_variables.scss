@@ -1,0 +1,32 @@
+// ==============================================================================
+// SIRITA THEME - DESIGN SYSTEM VARIABLES (PURWADHIKA-INSPIRED PALETTE)
+// ==============================================================================
+
+// Brand Colors
+$o-theme-color-primary: #0D9488 !default; // Hijau Tosca Utama Ma'had
+$o-theme-color-secondary: #171717 !default; // Charcoal Dark Modern
+$o-theme-color-success: #10B981 !default;
+$o-theme-color-info: #0284C7 !default;
+$o-theme-color-warning: #F59E0B !default;
+$o-theme-color-danger: #D61313 !default;
+
+// Custom Purwadhika Extended Accents
+$sirita-mint-light: #CCF5DC;
+$sirita-mint-accent: #2DD4BF;
+$sirita-mint-bright: #AAEEC4;
+$sirita-charcoal-dark: #171717;
+$sirita-charcoal-muted: #747474;
+$sirita-canvas-bg: #FAFAFA;
+$sirita-card-border: #E5E7EB;
+
+// Bootstrap / Website Overrides
+$body-bg: #FFFFFF !default;
+$body-color: #171717 !default;
+$primary: #0D9488 !default;
+$secondary: #171717 !default;
+
+// Border Radius & Shadows (Purwadhika Soft Rounded Style)
+$border-radius: 10px !default;
+$border-radius-lg: 16px !default;
+$border-radius-sm: 6px !default;
+$border-radius-pill: 50rem !default;
