@@ -25,6 +25,10 @@
         'web._assets_primary_variables': [
             'sirita_theme/static/src/scss/_variables.scss',
         ],
+        'web.assets_backend': [
+            'sirita_theme/static/src/xml/navbar_override.xml',
+            'sirita_theme/static/src/scss/backend_global.scss',
+        ],
         'web.assets_frontend': [
             'sirita_theme/static/src/scss/_typography.scss',
             'sirita_theme/static/src/scss/_components.scss',

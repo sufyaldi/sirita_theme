@@ -2,7 +2,7 @@
 <odoo>
 
     <!-- Homepage Template Khusus Ma'had Al-Jami'ah IAIN Parepare -->
-    <template id="sirita_mahad_homepage" inherit_id="website.homepage" name="Ma'had Al-Jami'ah Homepage" priority="30">
+    <template id="sirita_mahad_homepage" inherit_id="website.homepage" name="Ma'had Al-Jami'ah Homepage" priority="999">
         <xpath expr="." position="replace">
             <t t-call="website.layout">
                 <div id="wrap" class="oe_structure oe_empty limit-min homepage sirita_theme_homepage">
@@ -93,7 +93,7 @@
                                                     <i class="fa fa-qrcode" style="font-size: 22px;"/>
                                                 </div>
                                                 <div>
-                                                    <h6 class="fw-bold mb-0 text-dark">Cek Syahadah</h6>
+                                                    <h6 class="fw-bold mb-0 text-dark">Cek Sertifikat</h6>
                                                     <small class="text-muted">Validasi QR Resmi</small>
                                                 </div>
                                             </div>
@@ -314,8 +314,9 @@
                                     <p class="text-muted small mb-0">Maklumat resmi pengasuhan, jam malam, dan agenda kesantrian terpublikasi.</p>
                                 </div>
                                 <div class="mt-3 mt-md-0">
-                                    <span class="badge bg-light text-dark border px-3 py-2 rounded-pill small">
-                                        <i class="fa fa-circle text-success me-1"/> Siaran Aktif Real-time
+                                    <span class="badge bg-white text-dark border px-3 py-2 rounded-pill shadow-sm small d-inline-flex align-items-center">
+                                        <span class="spinner-grow spinner-grow-sm text-success me-2" role="status" style="width: 8px; height: 8px;"></span>
+                                        <span class="fw-semibold text-secondary">Sinkronisasi Database Asrama Aktif</span>
                                     </span>
                                 </div>
                             </div>

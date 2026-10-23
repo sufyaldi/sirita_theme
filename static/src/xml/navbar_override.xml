@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <!-- Override web.NavBar to hide horizontal sections menu completely -->
+    <t t-inherit="web.NavBar" t-inherit-mode="extension">
+        <xpath expr="//t[@t-call='web.NavBar.SectionsMenu']" position="replace">
+            <!-- Completely removed horizontal sections menu from top navbar -->
+        </xpath>
+    </t>
+
+</templates>
