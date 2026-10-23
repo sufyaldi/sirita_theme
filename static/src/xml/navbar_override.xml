@@ -8,4 +8,44 @@
         </xpath>
     </t>
 
+    <!-- Override web.NavBar.AppsMenu to render a responsive App Launcher Grid like SaaS/Enterprise -->
+    <t t-inherit="web.NavBar.AppsMenu" t-inherit-mode="extension">
+        <xpath expr="//div[hasclass('o_navbar_apps_menu')]" position="replace">
+            <div t-if="!this.isScopedApp" class="o_navbar_apps_menu">
+                <Dropdown menuClass="'o_sirita_apps_grid_popover'">
+                    <button data-hotkey="h" title="Daftar Modul / Apps" data-available-offline="" class="o_sirita_apps_toggle_btn">
+                        <i class="oi" data-icon="apps"/>
+                    </button>
+                    <t t-set-slot="content">
+                        <div class="o_sirita_apps_launcher_wrap">
+                            <div class="o_sirita_launcher_header">
+                                <div class="o_sirita_launcher_brand">
+                                    <span class="o_sirita_launcher_title">Aplikasi &amp; Modul</span>
+                                    <span class="o_sirita_launcher_sub">SIRITA UIN Parepare</span>
+                                </div>
+                            </div>
+                            <div class="o_sirita_apps_grid">
+                                <t t-foreach="apps" t-as="app" t-key="app.id">
+                                    <DropdownItem
+                                        class="{ 'o_sirita_app_card': true, 'o_active': this.menuService.getCurrentApp() === app, 'o_disabled_offline': !this._isAvailable(app) }"
+                                        onSelected="() => this.onNavBarDropdownItemSelection(app)"
+                                        attrs="{ href: this.getMenuItemHref(app), 'data-menu-xmlid': app.xmlid, 'data-section': app.id }"
+                                    >
+                                        <div class="o_sirita_app_icon_box">
+                                            <img t-if="app.webIconData" class="o_sirita_app_icon_img" t-attf-src="{{app.webIconData}}" alt="icon"/>
+                                            <i t-elif="app.webIcon" class="oi oi-2x o_sirita_app_icon_font" t-att-data-icon="app.webIcon.split(',')[0]" t-att-style="'color:' + app.webIcon.split(',')[1]"/>
+                                            <i t-else="" class="oi oi-2x o_sirita_app_icon_font text-success" data-icon="apps"/>
+                                        </div>
+                                        <span class="o_sirita_app_name" t-out="app.name"/>
+                                    </DropdownItem>
+                                </t>
+                            </div>
+                        </div>
+                    </t>
+                </Dropdown>
+            </div>
+            <div t-else="" class="mx-2"/>
+        </xpath>
+    </t>
+
 </templates>

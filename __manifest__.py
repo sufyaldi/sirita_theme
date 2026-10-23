@@ -12,8 +12,8 @@
         4. Komponen card-based bergaris halus dengan efek hover halus.
         5. Widget publik pencarian verifikasi status Syahadah Ma'had (terkoneksi API).
     """,
-    'author': 'sufyALDI | TIPD IAIN Parepare',
-    'website': 'https://mahad.iainpare.ac.id',
+    'author': 'TIPD IAIN Parepare',
+    'website': 'https://iainpare.ac.id',
     'license': 'LGPL-3',
     'depends': ['website', 'sirita_mahad', 'sirita_mahad_pembinaan'],
     'data': [

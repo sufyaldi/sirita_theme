@@ -383,3 +383,160 @@ body.o_web_client {
 .o_main_navbar .o_menu_sections_more {
     display: none !important;
 }
+
+/* ==========================================================================
+   SIRITA Modern SaaS Responsive Apps Grid Launcher (image copy 44 inspired)
+   ========================================================================== */
+.o_sirita_apps_grid_popover {
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 18px !important;
+    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(0, 0, 0, 0.04) !important;
+    background: #ffffff !important;
+    padding: 0 !important;
+    margin-top: 10px !important;
+    overflow: hidden !important;
+    max-width: 90vw !important;
+    width: 640px !important;
+    max-height: 85vh !important;
+    animation: siritaFadeSlide 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+@keyframes siritaFadeSlide {
+    from {
+        opacity: 0;
+        transform: translateY(-8px) scale(0.98);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.o_sirita_apps_launcher_wrap {
+    display: flex;
+    flex-direction: column;
+    padding: 1.25rem 1.5rem 1.5rem 1.5rem;
+    max-height: 82vh;
+    overflow-y: auto;
+}
+
+.o_sirita_launcher_header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.o_sirita_launcher_title {
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: #0f172a;
+    letter-spacing: -0.01em;
+    display: block;
+}
+
+.o_sirita_launcher_sub {
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: #64748b;
+    display: block;
+}
+
+/* 4 columns on desktop / tablet */
+.o_sirita_apps_grid {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 1rem 0.75rem !important;
+    padding: 0.25rem 0 !important;
+}
+
+@media (max-width: 580px) {
+    .o_sirita_apps_grid_popover {
+        width: 340px !important;
+    }
+    .o_sirita_apps_grid {
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 0.85rem 0.5rem !important;
+    }
+}
+
+/* App Card styling */
+.o_sirita_app_card {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    text-align: center !important;
+    padding: 0.85rem 0.5rem 0.75rem 0.5rem !important;
+    border-radius: 14px !important;
+    background: transparent !important;
+    text-decoration: none !important;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    cursor: pointer !important;
+    border: 1px solid transparent !important;
+
+    &:hover {
+        background-color: #f8fafc !important;
+        border-color: #f1f5f9 !important;
+        transform: translateY(-3px) !important;
+
+        .o_sirita_app_icon_box {
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08), 0 2px 4px rgba(0, 0, 0, 0.04) !important;
+            transform: scale(1.05) !important;
+        }
+
+        .o_sirita_app_name {
+            color: #16a34a !important;
+            font-weight: 700 !important;
+        }
+    }
+
+    &.o_active {
+        background-color: #f0fdf4 !important;
+        border-color: #dcfce7 !important;
+
+        .o_sirita_app_name {
+            color: #16a34a !important;
+            font-weight: 700 !important;
+        }
+    }
+}
+
+/* App Icon Container - Modern Squircle Card like image copy 44 */
+.o_sirita_app_icon_box {
+    width: 64px !important;
+    height: 64px !important;
+    border-radius: 16px !important;
+    background: #ffffff !important;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.03) !important;
+    border: 1px solid #edf2f7 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin-bottom: 0.65rem !important;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    padding: 8px !important;
+}
+
+.o_sirita_app_icon_img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+    border-radius: 10px !important;
+}
+
+.o_sirita_app_icon_font {
+    font-size: 1.75rem !important;
+}
+
+.o_sirita_app_name {
+    font-size: 0.82rem !important;
+    font-weight: 600 !important;
+    color: #334155 !important;
+    line-height: 1.25 !important;
+    max-width: 105px !important;
+    word-break: break-word !important;
+    transition: color 0.15s ease !important;
+}
