@@ -20,62 +20,188 @@ body.o_web_client {
    Top Navbar Transformation (Clean White, Borderless, Soft Shadow)
    -------------------------------------------------------------------------- */
 .o_main_navbar {
+    --NavBar-background: #ffffff !important;
+    --NavBar-entry-backgroundColor: transparent !important;
+    --NavBar-entry-backgroundColor--hover: #f1f5f9 !important;
+    --NavBar-entry-backgroundColor--focus: #f1f5f9 !important;
+    --NavBar-entry-backgroundColor--active: #ecfdf5 !important;
+    --NavBar-entry-color: #475569 !important;
+    --NavBar-entry-color--hover: #0f172a !important;
+    --NavBar-entry-color--active: #15803d !important;
+    --NavBar-brand-color: #0f172a !important;
+    --o-navbar-background: #ffffff !important;
+    --o-navbar-height: 52px !important;
+
+    display: flex !important;
+    align-items: center !important;
+    height: 52px !important;
+    min-height: 52px !important;
+    max-height: 52px !important;
+    padding: 0 1.25rem !important;
     background-color: #ffffff !important;
+    background: #ffffff !important;
     border-bottom: 1px solid #edf2f7 !important;
     color: #334155 !important;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03) !important;
-    height: 52px !important;
-    padding: 0 1rem !important;
+    gap: 0.5rem !important;
 
     /* Apps Icon Button (9-dots or grid) */
-    .o_navbar_apps_menu button {
-        color: #16a34a !important;
-        background: #f0fdf4 !important;
-        border-radius: 10px !important;
-        height: 38px !important;
-        width: 38px !important;
-        margin: 7px 8px 7px 0 !important;
+    .o_navbar_apps_menu {
         display: flex !important;
         align-items: center !important;
-        justify-content: center !important;
-        border: 1px solid #dcfce7 !important;
-        transition: all 0.2s ease !important;
+        height: 100% !important;
 
-        &:hover {
-            background: #dcfce7 !important;
-            transform: scale(1.04) !important;
+        button {
+            color: #16a34a !important;
+            background: #f0fdf4 !important;
+            border-radius: 10px !important;
+            height: 36px !important;
+            width: 36px !important;
+            margin: 0 6px 0 0 !important;
+            display: inline-flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            border: 1px solid #dcfce7 !important;
+            transition: all 0.2s ease !important;
+
+            &:hover {
+                background: #dcfce7 !important;
+                transform: scale(1.04) !important;
+            }
         }
     }
 
     /* Current App Brand Title */
     .o_menu_brand {
+        display: inline-flex !important;
+        align-items: center !important;
         color: #0f172a !important;
-        font-weight: 800 !important;
-        font-size: 1.15rem !important;
-        padding-left: 0.5rem !important;
-        letter-spacing: -0.02em !important;
+        font-weight: 700 !important;
+        font-size: 1.05rem !important;
+        letter-spacing: -0.01em !important;
+        padding: 0 0.5rem !important;
+        margin: 0 0.5rem 0 0 !important;
+        height: 36px !important;
+        line-height: 36px !important;
+        background: transparent !important;
+        background-color: transparent !important;
+        border: none !important;
+        text-decoration: none !important;
+
+        &:hover {
+            background: transparent !important;
+            color: #16a34a !important;
+        }
     }
 
-    /* Menu Sections (Top Links) */
+    /* Menu Sections (Top Links & Dropdowns) */
     .o_menu_sections {
-        .o_nav_entry, button {
-            color: #475569 !important;
-            font-weight: 600 !important;
-            font-size: 0.88rem !important;
+        display: flex !important;
+        align-items: center !important;
+        height: 100% !important;
+        gap: 0.35rem !important;
+
+        --NavBar-entry-backgroundColor: transparent !important;
+        --NavBar-entry-backgroundColor--hover: #f1f5f9 !important;
+        --NavBar-entry-backgroundColor--focus: #f1f5f9 !important;
+        --NavBar-entry-backgroundColor--active: #ecfdf5 !important;
+        --NavBar-entry-color: #475569 !important;
+        --NavBar-entry-color--hover: #0f172a !important;
+        --NavBar-entry-color--active: #15803d !important;
+
+        /* All items, dropdown triggers, and buttons inside menu sections */
+        .o_nav_entry,
+        button,
+        .dropdown-toggle,
+        .btn {
+            display: inline-flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            height: 36px !important;
+            line-height: 1.2 !important;
+            padding: 0.45rem 0.85rem !important;
+            margin: 0 !important;
             border-radius: 8px !important;
-            padding: 0.4rem 0.75rem !important;
-            margin: 0 2px !important;
+            font-size: 0.88rem !important;
+            font-weight: 600 !important;
+            color: #475569 !important;
+            background: transparent !important;
+            background-color: transparent !important;
+            border: 1px solid transparent !important;
+            box-shadow: none !important;
+            cursor: pointer !important;
+            text-decoration: none !important;
             transition: all 0.15s ease !important;
 
             &:hover {
                 background: #f1f5f9 !important;
+                background-color: #f1f5f9 !important;
                 color: #0f172a !important;
+                border-color: #e2e8f0 !important;
             }
+
+            &:focus,
+            &.active,
+            &.show,
+            &[aria-expanded="true"] {
+                background: #ecfdf5 !important;
+                background-color: #ecfdf5 !important;
+                color: #15803d !important;
+                border-color: #bbf7d0 !important;
+                font-weight: 700 !important;
+            }
+        }
+
+        .o_menu_sections_more button {
+            width: 36px !important;
+            padding: 0 !important;
         }
     }
 
-    /* Systray Items (User Profile, Dark Mode, Switch Company, Notification) */
+    /* Dropdown Menus in Navbar */
+    .dropdown-menu {
+        border-radius: 12px !important;
+        border: 1px solid #e2e8f0 !important;
+        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.04) !important;
+        padding: 0.5rem !important;
+        background-color: #ffffff !important;
+
+        .dropdown-item {
+            border-radius: 8px !important;
+            padding: 0.5rem 0.85rem !important;
+            font-size: 0.86rem !important;
+            font-weight: 500 !important;
+            color: #334155 !important;
+            transition: all 0.12s ease !important;
+
+            &:hover, &:focus {
+                background-color: #f1f5f9 !important;
+                color: #0f172a !important;
+            }
+
+            &.active, &:active {
+                background-color: #ecfdf5 !important;
+                color: #15803d !important;
+                font-weight: 600 !important;
+            }
+        }
+
+        .dropdown-header {
+            font-size: 0.72rem !important;
+            font-weight: 700 !important;
+            text-transform: uppercase !important;
+            letter-spacing: 0.05em !important;
+            color: #94a3b8 !important;
+            padding: 0.5rem 0.85rem 0.25rem !important;
+        }
+    }
+
+    /* Systray Items (User Profile, Switch Company, Notification) */
     .o_menu_systray {
+        display: flex !important;
+        align-items: center !important;
+        height: 100% !important;
+        gap: 0.25rem !important;
         --NavBar-entry-backgroundColor: transparent !important;
         --NavBar-entry-backgroundColor--hover: #f1f5f9 !important;
         --NavBar-entry-backgroundColor--active: #e2e8f0 !important;
@@ -87,12 +213,18 @@ body.o_web_client {
 
         /* Reset all buttons, entries, links inside systray */
         button, a, .o_nav_entry, .dropdown-toggle, .o_switch_company_menu, .o_user_menu {
+            display: inline-flex !important;
+            align-items: center !important;
+            justify-content: center !important;
             background-color: transparent !important;
             background: transparent !important;
             color: #475569 !important;
             border: 1px solid transparent !important;
             border-radius: 8px !important;
             box-shadow: none !important;
+            height: 36px !important;
+            margin: 0 !important;
+            padding: 0.35rem 0.65rem !important;
 
             &:hover, &:focus {
                 background-color: #f1f5f9 !important;
@@ -114,7 +246,7 @@ body.o_web_client {
             border: 1px solid #e2e8f0 !important;
             background-color: #ffffff !important;
             color: #334155 !important;
-            margin: 6px 4px !important;
+            margin: 0 4px !important;
             border-radius: 8px !important;
 
             &:hover {
@@ -130,8 +262,8 @@ body.o_web_client {
 
         /* User Profile Badge */
         .o_user_menu {
-            margin: 4px 0 !important;
-            padding: 0.25rem 0.5rem !important;
+            margin: 0 !important;
+            padding: 0.2rem 0.5rem !important;
             border-radius: 8px !important;
 
             &:hover {
@@ -141,14 +273,15 @@ body.o_web_client {
             .o_user_avatar {
                 border-radius: 50% !important;
                 border: 2px solid #16a34a !important;
-                width: 32px !important;
-                height: 32px !important;
+                width: 30px !important;
+                height: 30px !important;
                 object-fit: cover !important;
             }
 
             .oe_topbar_name {
                 color: #334155 !important;
                 font-weight: 600 !important;
+                font-size: 0.86rem !important;
             }
         }
 

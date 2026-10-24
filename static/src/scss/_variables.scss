@@ -30,3 +30,14 @@ $border-radius: 10px !default;
 $border-radius-lg: 16px !default;
 $border-radius-sm: 6px !default;
 $border-radius-pill: 50rem !default;
+
+// Odoo Backend Primary Overrides
+$o-brand-odoo: #16a34a !default;
+$o-navbar-background: #ffffff !default;
+$o-navbar-entry-color: #475569 !default;
+$o-navbar-entry-color--hover: #0f172a !default;
+$o-navbar-entry-bg--hover: #f1f5f9 !default;
+$o-navbar-entry-color--active: #15803d !default;
+$o-navbar-entry-bg--active: #ecfdf5 !default;
+$o-navbar-height: 52px !default;
+$o-navbar-padding-v: 8px !default;
