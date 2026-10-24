@@ -378,9 +378,12 @@ body.o_web_client {
     color: #b91c1c !important;
 }
 
-/* Hide horizontal menu sections in navbar while preserving apps button & brand */
-.o_main_navbar .o_menu_sections,
-.o_main_navbar .o_menu_sections_more {
+/* Dedicated dashboards exception (Ma'had, Bank Sampah) - Sembunyikan top navbar saat di dashboard khusus */
+body:has(.hostel_dashboard) .o_main_navbar,
+body.hostel_dashboard .o_main_navbar,
+body:has(.sampah_dashboard) .o_main_navbar,
+body.sampah_dashboard .o_main_navbar,
+body:has(.o_sampah_layout) .o_main_navbar {
     display: none !important;
 }
 
