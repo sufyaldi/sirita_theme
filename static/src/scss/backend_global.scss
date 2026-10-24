@@ -335,13 +335,53 @@ body.o_web_client {
         }
     }
 
-    /* Search Bar Input (Rounded Pill) */
-    .o_searchview {
+    /* Unified Search Bar Pill in Control Panel */
+    .o_cp_searchview {
+        border-radius: 50px !important;
+        border: 1px solid #e2e8f0 !important;
+        background: #f8fafc !important;
+        overflow: hidden !important;
+        transition: all 0.2s ease !important;
+        align-items: center !important;
+
+        &:focus-within,
+        &:has(.o_searchview_dropdown_toggler.show) {
+            background: #ffffff !important;
+            border-color: #16a34a !important;
+            box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.15) !important;
+        }
+
+        .o_searchview {
+            border: none !important;
+            background: transparent !important;
+            box-shadow: none !important;
+            border-radius: 0 !important;
+            padding: 0.35rem 0.85rem !important;
+        }
+
+        .o_searchview_dropdown_toggler {
+            border: none !important;
+            background: transparent !important;
+            box-shadow: none !important;
+            border-radius: 0 !important;
+            color: #64748b !important;
+            padding-right: 0.75rem !important;
+
+            &:hover, &:focus, &.show {
+                background: transparent !important;
+                border: none !important;
+                box-shadow: none !important;
+                color: #16a34a !important;
+            }
+        }
+    }
+
+    /* Standalone searchview fallback outside cp_searchview */
+    .o_searchview:not(.o_cp_searchview *) {
         border-radius: 50px !important;
         border: 1px solid #e2e8f0 !important;
         background: #f8fafc !important;
         padding: 0.3rem 0.85rem !important;
-        transition: all 0.2s ease !important;
 
         &:focus-within {
             background: #ffffff !important;
